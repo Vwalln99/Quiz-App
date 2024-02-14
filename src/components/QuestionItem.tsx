@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 interface Question {
   id?: number;
@@ -15,24 +15,25 @@ interface Props {
 }
 
 export default function QuestionItem({ question, onSubmitAnswer }: Props) {
-  const [selectedOption, setSelectedOption] = useState<string>('');
+  const [selectedOption, setSelectedOption] = useState<string>("");
 
   const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSelectedOption(value);
+    onSubmitAnswer([selectedOption]);
+    setSelectedOption("");
   };
-
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmitAnswer([selectedOption]);
-    setSelectedOption('');
+    setSelectedOption("");
   };
 
   return (
     <div>
       <h3>{question.text}</h3>
-      <form onSubmit={(e) => handleSubmit (e)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         {question.options.map((option, index) => (
           <div key={index}>
             <input
