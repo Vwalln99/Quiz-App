@@ -80,7 +80,7 @@ export default function QuizApp() {
   return (
     <div>
       <h1>Quiz App</h1>
-      {!showResult && (
+      {!showResult && !quizSubmitted && (
         <>
           <QuestionList questions={questions} onSubmitAnswers={handleSubmitAnswers} onDeleteQuestion={handleDeleteQuestion} onUpdateQuestion={handleUpdateQuestion}/>
           <FormComponent
@@ -89,6 +89,7 @@ export default function QuizApp() {
             onUpdateQuestion={handleUpdateQuestion}
             onDeleteQuestion={handleDeleteQuestion}
           />
+          <button onClick={() => setShowResult(true)}>Submit Quiz</button>
         </>
       )}
       {showResult && (

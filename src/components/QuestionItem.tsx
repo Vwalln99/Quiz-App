@@ -15,22 +15,24 @@ interface Props {
 }
 
 export default function QuestionItem({ question, onSubmitAnswer }: Props) {
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState<string>('');
 
   const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(e.target.value);
+    const { value } = e.target;
+    setSelectedOption(value);
   };
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmitAnswer([selectedOption]);
-    setSelectedOption(''); // Reset selected option after submission
+    setSelectedOption('');
   };
 
   return (
     <div>
       <h3>{question.text}</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit (e)}>
         {question.options.map((option, index) => (
           <div key={index}>
             <input
@@ -44,7 +46,6 @@ export default function QuestionItem({ question, onSubmitAnswer }: Props) {
             <label htmlFor={`option${index}`}>{option}</label>
           </div>
         ))}
-        <button type="submit">Submit Answer</button>
       </form>
     </div>
   );

@@ -23,15 +23,15 @@
       "correctOption": "Albert Einstein"
     },
     {
-      "id": "d21b",
+      "id": "9468",
       "text": "What haircolor do I have?",
       "options": [
         "blue",
+        "pink",
         "violett",
-        "brown",
-        "pink"
+        "all"
       ],
-      "correctOption": "brown"
+      "correctOption": "all"
     }
   ]
 }
