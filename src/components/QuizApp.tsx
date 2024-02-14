@@ -24,8 +24,12 @@ export default function QuizApp() {
   }, []);
 
   const handleSubmitAnswers = (answers: string[]) => {
-    setSubmittedAnswers(answers); //answers nur als kopie
-    setQuizSubmitted(true);
+    //TODO: auf doppelte Fragen prüfen
+    setSubmittedAnswers((prevanswer) => {
+      return [...prevanswer, ...answers];
+    }); //answers nur als kopie
+    //TODO: blendet alle Fragen aus
+    //setQuizSubmitted(true);
   };
 
   const handleResetQuiz = () => {
