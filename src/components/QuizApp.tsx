@@ -24,8 +24,7 @@ export default function QuizApp() {
   }, []);
 
   const handleSubmitAnswers = (answers: string[]) => {
-    console.log(answers);
-    setSubmittedAnswers(answers);
+    setSubmittedAnswers(answers); //answers nur als kopie
     setQuizSubmitted(true);
   };
 

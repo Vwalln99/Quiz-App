@@ -20,7 +20,7 @@ export default function QuestionList({ questions,onSubmitAnswers, onDeleteQuesti
     <div>
       {questions.map(question => (
         <div key={question.id}>
-          <QuestionItem question={question} onSubmitAnswer={onSubmitAnswers} onUpdateQuestion={onUpdateQuestion} onDeleteQuestion={onDeleteQuestion}/>
+          <QuestionItem question={question} onSubmitAnswers={onSubmitAnswers} onUpdateQuestion={onUpdateQuestion} onDeleteQuestion={onDeleteQuestion}/>
           <button type="button" onClick={() => onDeleteQuestion(question.id)}>Delete</button>
           <button type="button" onClick={() => onUpdateQuestion(question.id, question)}>Edit</button>
         </div>
