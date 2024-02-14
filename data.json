@@ -21,6 +21,17 @@
         "all"
       ],
       "correctOption": "all"
+    },
+    {
+      "id": "0a56",
+      "text": "Test",
+      "options": [
+        "Anwer1",
+        "Answer2",
+        "Answer3",
+        "Answer4"
+      ],
+      "correctOption": "Answer2"
     }
   ]
 }

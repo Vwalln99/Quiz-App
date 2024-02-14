@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from "react";
 
 interface Question {
   id?: number;
@@ -15,11 +15,11 @@ interface Props {
 }
 
 export default function QuestionItem({ question, onSubmitAnswers }: Props) {
-  const [selectedOption, setSelectedOption] = useState<string>('');
+  const [selectedOption, setSelectedOption] = useState<string>("");
 
   const handleOptionChange = (value: string) => {
     setSelectedOption(value);
-    console.log(value);
+    //console.log(value);
     onSubmitAnswers([value]);
   };
 
@@ -34,9 +34,11 @@ export default function QuestionItem({ question, onSubmitAnswers }: Props) {
             name={`option-${question.id}`}
             value={option}
             checked={selectedOption === option}
-            onChange={() => handleOptionChange(option)}
+            onChange={(e) => handleOptionChange(option)}
           />
-          <label htmlFor={`option${question.id}-${optionIndex}`}>{option}</label>
+          <label htmlFor={`option${question.id}-${optionIndex}`}>
+            {option}
+          </label>
         </div>
       ))}
     </div>
