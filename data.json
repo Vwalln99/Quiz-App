@@ -1,0 +1,37 @@
+{
+  "questions": [
+    {
+      "id": "2",
+      "text": "What is the largest planet in our solar system?",
+      "options": [
+        "Mars",
+        "Earth",
+        "Jupiter",
+        "Saturn"
+      ],
+      "correctOption": "Jupiter"
+    },
+    {
+      "id": "3",
+      "text": "Which famous scientist developed the theory of general relativity?",
+      "options": [
+        "Isaac Newton",
+        "Galileo Galilei",
+        "Albert Einstein",
+        "Stephen Hawking"
+      ],
+      "correctOption": "Albert Einstein"
+    },
+    {
+      "id": "d21b",
+      "text": "What haircolor do I have?",
+      "options": [
+        "blue",
+        "violett",
+        "brown",
+        "pink"
+      ],
+      "correctOption": "brown"
+    }
+  ]
+}
