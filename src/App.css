@@ -5,3 +5,70 @@
   text-align: center;
 }
 
+/* Global styles */
+h1 {
+  margin-bottom: 5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* QuestionList styles */
+.question-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.question-item {
+  width: 150px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* FormComponent styles */
+.form-container {
+  margin-bottom: 20px;
+}
+.add{
+  margin-top: 5rem;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ResultComponent styles */
+.result-container {
+  text-align: center;
+  margin-top: 5rem;
+  border: 2px dotted black;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .question-item {
+    width: calc(100% - 20px); /* Full width on smaller screens with a 20px gap */
+  }
+}

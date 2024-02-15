@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import QuestionList from "./QuestionList";
 import ResultComponent from "./ResultComponent";
 import FormComponent from "./FormComponent";
+import { Add } from '@mui/icons-material';
 
 interface Question {
   id?: number;
@@ -15,64 +16,68 @@ export default function QuizApp() {
   const [submittedAnswers, setSubmittedAnswers] = useState<string[]>([]);
   const [showResult, setShowResult] = useState<boolean>(false);
   const [quizSubmitted, setQuizSubmitted] = useState<boolean>(false);
+  const [showForm, setShowForm] = useState<boolean>(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/questions")
-      .then((response) => response.json())
+    fetch("https://vwalln99.github.io/quizdata/data.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch questions");
+        }
+        return response.json();
+      })
       .then((data: Question[]) => setQuestions(data))
       .catch((error) => console.error(error));
   }, []);
 
   const handleSubmitAnswers = (answers: string[]) => {
-    //TODO: auf doppelte Fragen prüfen
-    setSubmittedAnswers((prevanswer) => {
-      return [...prevanswer, ...answers];
-    }); //answers nur als kopie
-    //TODO: blendet alle Fragen aus
-    //setQuizSubmitted(true);
-  };
-
-  const handleResetQuiz = () => {
-    setSubmittedAnswers([]);
-    setShowResult(false);
-    setQuizSubmitted(false);
+    setSubmittedAnswers(prevAnswers => [...prevAnswers, ...answers]);
   };
 
   const handleAddQuestion = (question: Question) => {
-    fetch("http://localhost:3000/questions", {
+    fetch("https://vwalln99.github.io/quizdata/data.json", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(question),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to add question");
+        }
+        return response.json();
+      })
       .then((data: Question) => setQuestions([...questions, data]))
       .catch((error) => console.error("Error adding question:", error));
-  };
+      setShowForm(false);
+    };
 
-  const handleUpdateQuestion = (
-    id: number | undefined,
-    updatedQuestion: Question
-  ) => {
-    fetch(`http://localhost:3000/questions/${id}`, {
+  const handleUpdateQuestion = (id: number | undefined, updatedQuestion: Question) => {
+    fetch(`https://vwalln99.github.io/quizdata/data.json/questions/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(updatedQuestion),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to update question");
+        }
+        return response.json();
+      })
       .then((data: Question) => {
         const updatedQuestions = questions.map((q) => (q.id === id ? data : q));
         setQuestions(updatedQuestions);
+        setShowForm(false);
       })
       .catch((error) => console.error(error));
   };
 
   const handleDeleteQuestion = (id: number | undefined) => {
     if (id !== undefined) {
-      fetch(`http://localhost:3000/questions/${id}`, {
+      fetch(`https://vwalln99.github.io/quizdata/data.json/questions/${id}`, {
         method: "DELETE",
       })
         .then(() => {
@@ -83,24 +88,34 @@ export default function QuizApp() {
     }
   };
 
+  const handleResetQuiz = () => {
+    setSubmittedAnswers([]);
+    setShowResult(false);
+    setQuizSubmitted(false);
+  };
+
   return (
-    <div>
+    <div className="container">
       <h1>Quiz App</h1>
       {!showResult && !quizSubmitted && (
         <>
           <QuestionList
             questions={questions}
+            onAddQuestion={handleAddQuestion}
             onSubmitAnswers={handleSubmitAnswers}
             onDeleteQuestion={handleDeleteQuestion}
             onUpdateQuestion={handleUpdateQuestion}
           />
-          <FormComponent
-            questions={questions}
-            onAddQuestion={handleAddQuestion}
-            onUpdateQuestion={handleUpdateQuestion}
-            onDeleteQuestion={handleDeleteQuestion}
-          />
+          {showForm && ( 
+            <FormComponent
+              question={{ text: '', options: ['', '', '', ''], correctOption: '' }}
+              onAddQuestion={handleAddQuestion}
+              onUpdateQuestion={handleUpdateQuestion}
+              onDeleteQuestion={handleDeleteQuestion}
+            />
+          )}
           <button onClick={() => setShowResult(true)}>Submit Quiz</button>
+          <Add onClick={() => setShowForm(true)}/>
         </>
       )}
       {showResult && (

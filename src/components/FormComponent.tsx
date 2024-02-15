@@ -8,18 +8,17 @@ interface Question {
 }
 
 interface Props {
-  questions: Question[];
+  question: Question;
   onAddQuestion: (formData: Question) => void;
   onUpdateQuestion: (questionId: number, updatedQuestion: Question) => void;
   onDeleteQuestion: (questionId: number | undefined) => void;
 }
-
-export default function FormComponent({ questions, onAddQuestion, onUpdateQuestion }: Props) {
+export default function FormComponent({ question, onAddQuestion, onUpdateQuestion }: Props) {
   const [formData, setFormData] = useState<Question>({ text: '', options: ['', '', '', ''], correctOption: '' });
 
   useEffect(() => {
-    setFormData({ text: '', options: ['', '', '', ''], correctOption: '' });
-  }, [questions]);
+    setFormData(question);
+  }, [question]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -52,8 +51,8 @@ export default function FormComponent({ questions, onAddQuestion, onUpdateQuesti
 
   return (
     <>
-      <h2>Add Question</h2>
-      <form onSubmit={handleSubmit}>
+      <h2>{formData.id ? 'Update Question' : 'Add Question'}</h2>
+      <form onSubmit={handleSubmit} className='form-container'>
         <input type="text" name="text" placeholder="Question" value={formData.text} onChange={handleChange} />
         {formData.options.map((option, index) => (
           <input key={index} type="text" placeholder={`Option ${index + 1}`} value={option} onChange={(e) => handleOptionChange(index, e.target.value)} />

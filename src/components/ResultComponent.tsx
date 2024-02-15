@@ -21,7 +21,7 @@ export default function ResultComponent({ questions, submittedAnswers, onResetQu
   const percentage = (correctAnswers / questions.length) * 100;
 
   return (
-    <div>
+    <div className="result-container">
       <h2>Quiz Result</h2>
       <p>Correct Answers: {correctAnswers}</p>
       <p>Incorrect Answers: {questions.length - correctAnswers}</p>

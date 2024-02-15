@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from "react";
 
+
 interface Question {
   id?: number;
   text: string;
@@ -16,15 +17,14 @@ interface Props {
 
 export default function QuestionItem({ question, onSubmitAnswers }: Props) {
   const [selectedOption, setSelectedOption] = useState<string>("");
-
+  
   const handleOptionChange = (value: string) => {
     setSelectedOption(value);
-    //console.log(value);
     onSubmitAnswers([value]);
   };
 
   return (
-    <div>
+    <div className="question-item">
       <h3>{question.text}</h3>
       {question.options.map((option, optionIndex) => (
         <div key={optionIndex}>
