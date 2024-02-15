@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import QuestionList from "./QuestionList";
 import ResultComponent from "./ResultComponent";
 import FormComponent from "./FormComponent";
-import { Add } from '@mui/icons-material';
+import { Add } from "@mui/icons-material";
 
 interface Question {
   id?: number;
@@ -19,7 +19,23 @@ export default function QuizApp() {
   const [showForm, setShowForm] = useState<boolean>(false);
 
   useEffect(() => {
-    fetch("https://vwalln99.github.io/quizdata/data.json")
+    const fetchQuestions = async () => {
+      try {
+        const response = await fetch(
+          "https://vwalln99.github.io/quizdata/data.json"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch questions");
+        }
+        const data = await response.json();
+        setQuestions(data.questions);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchQuestions();
+
+    /* fetch("https://vwalln99.github.io/quizdata/data.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch questions");
@@ -27,11 +43,11 @@ export default function QuizApp() {
         return response.json();
       })
       .then((data: Question[]) => setQuestions(data))
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error)); */
   }, []);
 
   const handleSubmitAnswers = (answers: string[]) => {
-    setSubmittedAnswers(prevAnswers => [...prevAnswers, ...answers]);
+    setSubmittedAnswers((prevAnswers) => [...prevAnswers, ...answers]);
   };
 
   const handleAddQuestion = (question: Question) => {
@@ -50,10 +66,13 @@ export default function QuizApp() {
       })
       .then((data: Question) => setQuestions([...questions, data]))
       .catch((error) => console.error("Error adding question:", error));
-      setShowForm(false);
-    };
+    setShowForm(false);
+  };
 
-  const handleUpdateQuestion = (id: number | undefined, updatedQuestion: Question) => {
+  const handleUpdateQuestion = (
+    id: number | undefined,
+    updatedQuestion: Question
+  ) => {
     fetch(`https://vwalln99.github.io/quizdata/data.json/questions/${id}`, {
       method: "PUT",
       headers: {
@@ -106,16 +125,20 @@ export default function QuizApp() {
             onDeleteQuestion={handleDeleteQuestion}
             onUpdateQuestion={handleUpdateQuestion}
           />
-          {showForm && ( 
+          {showForm && (
             <FormComponent
-              question={{ text: '', options: ['', '', '', ''], correctOption: '' }}
+              question={{
+                text: "",
+                options: ["", "", "", ""],
+                correctOption: "",
+              }}
               onAddQuestion={handleAddQuestion}
               onUpdateQuestion={handleUpdateQuestion}
               onDeleteQuestion={handleDeleteQuestion}
             />
           )}
           <button onClick={() => setShowResult(true)}>Submit Quiz</button>
-          <Add onClick={() => setShowForm(true)}/>
+          <Add onClick={() => setShowForm(true)} />
         </>
       )}
       {showResult && (
