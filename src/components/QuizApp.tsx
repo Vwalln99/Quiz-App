@@ -100,6 +100,7 @@ export default function QuizApp() {
     if (id !== undefined) {
       fetch(`https://vwalln99.github.io/quizdata/data.json/questions/${id}`, {
         method: "DELETE",
+        mode:"cors",
       })
         .then(() => {
           const updatedQuestions = questions.filter((q) => q.id !== id);
