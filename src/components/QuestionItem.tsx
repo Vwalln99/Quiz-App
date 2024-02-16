@@ -24,7 +24,7 @@ export default function QuestionItem({ question, onSubmitAnswers }: Props) {
   };
 
   return (
-    <div className="question-item">
+    <div>
       <h3>{question.text}</h3>
       {question.options.map((option, optionIndex) => (
         <div key={optionIndex}>

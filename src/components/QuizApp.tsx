@@ -53,6 +53,7 @@ export default function QuizApp() {
   const handleAddQuestion = (question: Question) => {
     fetch("https://vwalln99.github.io/quizdata/data.json", {
       method: "POST",
+      mode:"cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -75,6 +76,7 @@ export default function QuizApp() {
   ) => {
     fetch(`https://vwalln99.github.io/quizdata/data.json/questions/${id}`, {
       method: "PUT",
+      mode:"cors",
       headers: {
         "Content-Type": "application/json",
       },

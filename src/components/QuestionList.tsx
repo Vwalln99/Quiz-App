@@ -42,7 +42,7 @@ export default function QuestionList({ questions, onSubmitAnswers, onDeleteQuest
   return (
     <div className='question-list'>
       {questions.map(question => (
-        <div key={question.id}>
+        <div key={question.id} className='question-item'>
           <QuestionItem
           question={question} 
           onSubmitAnswers={onSubmitAnswers}
