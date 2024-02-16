@@ -17,12 +17,13 @@ export default function QuizApp() {
   const [showResult, setShowResult] = useState<boolean>(false);
   const [quizSubmitted, setQuizSubmitted] = useState<boolean>(false);
   const [showForm, setShowForm] = useState<boolean>(false);
+  
 
   useEffect(() => {
-    const fetchQuestions = async () => {
+    /*const fetchQuestions = async () => {
       try {
         const response = await fetch(
-          "https://vwalln99.github.io/quizdata/data.json"
+          "http://localhost:3000/questions"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch questions");
@@ -33,9 +34,9 @@ export default function QuizApp() {
         console.error(error);
       }
     };
-    fetchQuestions();
+    fetchQuestions();*/
 
-    /* fetch("https://vwalln99.github.io/quizdata/data.json")
+     fetch("http://localhost:3000/questions")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch questions");
@@ -43,7 +44,7 @@ export default function QuizApp() {
         return response.json();
       })
       .then((data: Question[]) => setQuestions(data))
-      .catch((error) => console.error(error)); */
+      .catch((error) => console.error(error)); 
   }, []);
 
   const handleSubmitAnswers = (answers: string[]) => {
@@ -51,7 +52,7 @@ export default function QuizApp() {
   };
 
   const handleAddQuestion = (question: Question) => {
-    fetch("https://vwalln99.github.io/quizdata/data.json", {
+    fetch("http://localhost:3000/questions", {
       method: "POST",
       mode:"cors",
       headers: {
@@ -74,7 +75,7 @@ export default function QuizApp() {
     id: number | undefined,
     updatedQuestion: Question
   ) => {
-    fetch(`https://vwalln99.github.io/quizdata/data.json/questions/${id}`, {
+    fetch(`"http://localhost:3000/questions"/${id}`, {
       method: "PUT",
       mode:"cors",
       headers: {
@@ -98,7 +99,7 @@ export default function QuizApp() {
 
   const handleDeleteQuestion = (id: number | undefined) => {
     if (id !== undefined) {
-      fetch(`https://vwalln99.github.io/quizdata/data.json/questions/${id}`, {
+      fetch(`"http://localhost:3000/questions"/${id}`, {
         method: "DELETE",
         mode:"cors",
       })
@@ -118,7 +119,7 @@ export default function QuizApp() {
 
   return (
     <div className="container">
-      <h1>Quiz App</h1>
+      <h1>Test your knowledge!</h1>
       {!showResult && !quizSubmitted && (
         <>
           <QuestionList
@@ -141,7 +142,7 @@ export default function QuizApp() {
             />
           )}
           <button onClick={() => setShowResult(true)}>Submit Quiz</button>
-          <Add onClick={() => setShowForm(true)} />
+          <Add className="add" onClick={() => setShowForm(true)} />
         </>
       )}
       {showResult && (

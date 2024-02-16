@@ -49,8 +49,8 @@ export default function QuestionList({ questions, onSubmitAnswers, onDeleteQuest
            onUpdateQuestion={onUpdateQuestion} 
            onDeleteQuestion={onDeleteQuestion}
            />
-          <Delete onClick={() => handleDeleteButtonClick(question.id)} style={{ cursor: "pointer" }} />
-          <Edit onClick={() => handleEditButtonClick(question)} style={{ cursor: "pointer" }} />
+          <Delete className='icon' onClick={() => handleDeleteButtonClick(question.id)} style={{ cursor: "pointer" }} />
+          <Edit className='icon' onClick={() => handleEditButtonClick(question)} style={{ cursor: "pointer" }} />
           </div>
       ))}
       <DeleteDialog

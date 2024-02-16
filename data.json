@@ -1,37 +1,234 @@
 {
   "questions": [
     {
-      "id": "9468",
-      "text": "What haircolor do I have?",
-      "options": [
-        "blue",
-        "pink",
-        "green",
-        "all"
-      ],
-      "correctOption": "all"
+      "id": "1",
+      "text": "What is the capital of France?",
+      "options": ["Paris", "London", "Berlin", "Rome"],
+      "correctOption": "Paris"
     },
     {
-      "id": "0a56",
-      "text": "Test1",
+      "id": "2",
+      "text": "Who painted the Mona Lisa?",
       "options": [
-        "Anwer1",
-        "Answer2",
-        "Answer5",
-        "Answer4"
+        "Vincent van Gogh",
+        "Leonardo da Vinci",
+        "Pablo Picasso",
+        "Michelangelo"
       ],
-      "correctOption": "Answer2"
+      "correctOption": "Leonardo da Vinci"
     },
     {
-      "id": "2eb6",
-      "text": "test",
+      "id": "3",
+      "text": "What is the largest planet in our solar system?",
+      "options": ["Earth", "Mars", "Jupiter", "Saturn"],
+      "correctOption": "Jupiter"
+    },
+    {
+      "id": "4",
+      "text": "What is the chemical symbol for water?",
+      "options": ["H", "O", "HO", "H2O"],
+      "correctOption": "H2O"
+    },
+    {
+      "id": "5",
+      "text": "Who wrote the play 'Romeo and Juliet'?",
       "options": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "William Shakespeare",
+        "Charles Dickens",
+        "Jane Austen",
+        "Mark Twain"
       ],
-      "correctOption": "2"
+      "correctOption": "William Shakespeare"
+    },
+    {
+      "id": "6",
+      "text": "What is the tallest mammal on Earth?",
+      "options": ["Elephant", "Giraffe", "Kangaroo", "Whale"],
+      "correctOption": "Giraffe"
+    },
+    {
+      "id": "7",
+      "text": "What is the currency of Japan?",
+      "options": ["Yuan", "Euro", "Dollar", "Yen"],
+      "correctOption": "Yen"
+    },
+    {
+      "id": "8",
+      "text": "Who discovered penicillin?",
+      "options": [
+        "Marie Curie",
+        "Alexander Fleming",
+        "Albert Einstein",
+        "Isaac Newton"
+      ],
+      "correctOption": "Alexander Fleming"
+    },
+    {
+      "id": "9",
+      "text": "What is the largest organ in the human body?",
+      "options": ["Heart", "Liver", "Lungs", "Skin"],
+      "correctOption": "Skin"
+    },
+    {
+      "id": "10",
+      "text": "What year did the Titanic sink?",
+      "options": ["1912", "1901", "1923", "1935"],
+      "correctOption": "1912"
+    },
+    {
+      "id": "11",
+      "text": "What is the chemical symbol for gold?",
+      "options": ["Ag", "Au", "Pt", "Hg"],
+      "correctOption": "Au"
+    },
+    {
+      "id": "12",
+      "text": "Who wrote the Harry Potter series?",
+      "options": [
+        "J.K. Rowling",
+        "J.R.R. Tolkien",
+        "C.S. Lewis",
+        "George R.R. Martin"
+      ],
+      "correctOption": "J.K. Rowling"
+    },
+    {
+      "id": "13",
+      "text": "What is the smallest bone in the human body?",
+      "options": ["Femur", "Patella", "Stapes", "Radius"],
+      "correctOption": "Stapes"
+    },
+    {
+      "id": "14",
+      "text": "What is the chemical symbol for silver?",
+      "options": ["S", "Ag", "Si", "Au"],
+      "correctOption": "Ag"
+    },
+    {
+      "id": "15",
+      "text": "What is the capital of Australia?",
+      "options": ["Sydney", "Melbourne", "Canberra", "Brisbane"],
+      "correctOption": "Canberra"
+    },
+    {
+      "id": "16",
+      "text": "Who invented the telephone?",
+      "options": [
+        "Thomas Edison",
+        "Alexander Graham Bell",
+        "Nikola Tesla",
+        "Albert Einstein"
+      ],
+      "correctOption": "Alexander Graham Bell"
+    },
+    {
+      "id": "17",
+      "text": "What is the chemical symbol for carbon?",
+      "options": ["Co", "Cr", "Ca", "C"],
+      "correctOption": "C"
+    },
+    {
+      "id": "18",
+      "text": "What is the largest bird in the world?",
+      "options": ["Penguin", "Ostrich", "Eagle", "Albatross"],
+      "correctOption": "Ostrich"
+    },
+    {
+      "id": "19",
+      "text": "What is the hardest natural substance on Earth?",
+      "options": ["Diamond", "Steel", "Iron", "Gold"],
+      "correctOption": "Diamond"
+    },
+    {
+      "id": "20",
+      "text": "What is the chemical symbol for sodium?",
+      "options": ["S", "Na", "Si", "Au"],
+      "correctOption": "Na"
+    },
+    {
+      "id": "21",
+      "text": "Who wrote 'To Kill a Mockingbird'?",
+      "options": [
+        "J.D. Salinger",
+        "Harper Lee",
+        "John Steinbeck",
+        "F. Scott Fitzgerald"
+      ],
+      "correctOption": "Harper Lee"
+    },
+    {
+      "id": "22",
+      "text": "What is the capital of Brazil?",
+      "options": ["Sao Paulo", "Rio de Janeiro", "Brasilia", "Salvador"],
+      "correctOption": "Brasilia"
+    },
+    {
+      "id": "23",
+      "text": "What is the chemical symbol for iron?",
+      "options": ["Fe", "Ir", "In", "Au"],
+      "correctOption": "Fe"
+    },
+    {
+      "id": "24",
+      "text": "What is the largest ocean on Earth?",
+      "options": [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Arctic Ocean",
+        "Pacific Ocean"
+      ],
+      "correctOption": "Pacific Ocean"
+    },
+    {
+      "id": "25",
+      "text": "Who painted 'Starry Night'?",
+      "options": [
+        "Vincent van Gogh",
+        "Leonardo da Vinci",
+        "Pablo Picasso",
+        "Michelangelo"
+      ],
+      "correctOption": "Vincent van Gogh"
+    },
+    {
+      "id": "26",
+      "text": "What is the chemical symbol for potassium?",
+      "options": ["Po", "Pa", "K", "P"],
+      "correctOption": "K"
+    },
+    {
+      "id": "27",
+      "text": "What is the largest desert in the world?",
+      "options": [
+        "Gobi Desert",
+        "Sahara Desert",
+        "Mojave Desert",
+        "Antarctica"
+      ],
+      "correctOption": "Sahara Desert"
+    },
+    {
+      "id": "28",
+      "text": "Who wrote 'The Great Gatsby'?",
+      "options": [
+        "F. Scott Fitzgerald",
+        "Ernest Hemingway",
+        "John Steinbeck",
+        "J.D. Salinger"
+      ],
+      "correctOption": "F. Scott Fitzgerald"
+    },
+    {
+      "id": "29",
+      "text": "What is the chemical symbol for helium?",
+      "options": ["He", "H", "Ha", "Hu"],
+      "correctOption": "He"
+    },
+    {
+      "id": "30",
+      "text": "What is the smallest country in the world?",
+      "options": ["Monaco", "Nauru", "Maldives", "Vatican City"],
+      "correctOption": "Vatican City"
     }
   ]
 }

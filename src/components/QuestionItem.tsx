@@ -28,7 +28,7 @@ export default function QuestionItem({ question, onSubmitAnswers }: Props) {
       <h3>{question.text}</h3>
       {question.options.map((option, optionIndex) => (
         <div key={optionIndex}>
-          <input
+          <input 
             type="radio"
             id={`option${question.id}-${optionIndex}`}
             name={`option-${question.id}`}
